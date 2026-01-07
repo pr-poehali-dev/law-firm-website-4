@@ -191,19 +191,12 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20" style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://cdn.poehali.dev/projects/8ed39914-0404-43b5-bf19-eb980f234e7e/files/455a795c-62cb-4e9f-b7bb-81aaa970bba0.jpg")',
+      <section id="home" className="relative min-h-screen flex items-center justify-center" style={{
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.poehali.dev/projects/8ed39914-0404-43b5-bf19-eb980f234e7e/files/455a795c-62cb-4e9f-b7bb-81aaa970bba0.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
         <div className="container mx-auto px-4 text-center text-white">
-          <div className="mb-8">
-            <img 
-              src="https://cdn.poehali.dev/projects/8ed39914-0404-43b5-bf19-eb980f234e7e/files/455a795c-62cb-4e9f-b7bb-81aaa970bba0.jpg" 
-              alt="Ерещенко и Партнёры" 
-              className="mx-auto mb-6 max-w-xs md:max-w-md opacity-90"
-            />
-          </div>
           <h1 className="text-5xl md:text-7xl mb-6 animate-fade-in" style={{ fontFamily: 'Cormorant, serif' }}>
             Юридическое бюро<br />«Ерещенко и Партнёры»
           </h1>
