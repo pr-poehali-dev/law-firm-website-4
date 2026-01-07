@@ -179,6 +179,9 @@ const Index = () => {
               <button onClick={() => scrollToSection('work')} className="text-gray-700 hover:text-primary transition-colors">
                 Как мы работаем
               </button>
+              <button onClick={() => scrollToSection('practice')} className="text-gray-700 hover:text-primary transition-colors">
+                Наша практика
+              </button>
               <button onClick={() => scrollToSection('blog')} className="text-gray-700 hover:text-primary transition-colors">
                 Блог
               </button>
@@ -383,8 +386,162 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Practice Section */}
+      <section id="practice" className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl text-center mb-12" style={{ fontFamily: 'Cormorant, serif' }}>
+            Наша практика
+          </h2>
+          
+          {/* Court Decisions */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-center mb-8" style={{ fontFamily: 'Cormorant, serif' }}>
+              Судебные решения
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <Card className="hover-scale cursor-pointer">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-primary/10 p-4 rounded-lg">
+                      <Icon name="FileText" size={32} className="text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg">Взыскание долга</h4>
+                      <p className="text-sm text-gray-500">Дело №2-1234/2024</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Успешное взыскание задолженности в размере 2,5 млн рублей в пользу клиента
+                  </p>
+                  <Button variant="outline" className="w-full">
+                    <Icon name="Download" size={16} className="mr-2" />
+                    Скачать PDF
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="hover-scale cursor-pointer">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-primary/10 p-4 rounded-lg">
+                      <Icon name="FileText" size={32} className="text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg">Раздел имущества</h4>
+                      <p className="text-sm text-gray-500">Дело №2-5678/2024</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Раздел совместно нажитого имущества с учётом интересов несовершеннолетних детей
+                  </p>
+                  <Button variant="outline" className="w-full">
+                    <Icon name="Download" size={16} className="mr-2" />
+                    Скачать PDF
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="hover-scale cursor-pointer">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-primary/10 p-4 rounded-lg">
+                      <Icon name="FileText" size={32} className="text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg">Трудовой спор</h4>
+                      <p className="text-sm text-gray-500">Дело №2-9012/2024</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Восстановление на работе с взысканием компенсации за вынужденный прогул
+                  </p>
+                  <Button variant="outline" className="w-full">
+                    <Icon name="Download" size={16} className="mr-2" />
+                    Скачать PDF
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Client Testimonials */}
+          <div className="bg-muted py-12 px-4 rounded-2xl">
+            <h3 className="text-3xl font-bold text-center mb-8" style={{ fontFamily: 'Cormorant, serif' }}>
+              Отзывы наших клиентов
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                      АИ
+                    </div>
+                    <div>
+                      <h4 className="font-bold">Анна Иванова</h4>
+                      <p className="text-sm text-gray-500">Клиент с 2023 года</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-1 mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Icon key={star} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    "Огромная благодарность за профессиональную помощь в разделе имущества. Всё прошло быстро и без лишних нервов."
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                      ДС
+                    </div>
+                    <div>
+                      <h4 className="font-bold">Дмитрий Соколов</h4>
+                      <p className="text-sm text-gray-500">Клиент с 2022 года</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-1 mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Icon key={star} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    "Отличные специалисты! Помогли взыскать долг с контрагента. Рекомендую всем, кто ищет надёжных юристов."
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                      ЕМ
+                    </div>
+                    <div>
+                      <h4 className="font-bold">Елена Михайлова</h4>
+                      <p className="text-sm text-gray-500">Клиент с 2024 года</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-1 mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Icon key={star} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    "Защитили мои права как потребителя. Спасибо за компетентность и внимательное отношение!"
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Blog Section */}
-      <section id="blog" className="py-20">
+      <section id="blog" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl text-center mb-12" style={{ fontFamily: 'Cormorant, serif' }}>
             Блог
