@@ -191,12 +191,19 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center" style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.poehali.dev/projects/8ed39914-0404-43b5-bf19-eb980f234e7e/files/455a795c-62cb-4e9f-b7bb-81aaa970bba0.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}>
-        <div className="container mx-auto px-4 text-center text-white">
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url("https://cdn.poehali.dev/projects/8ed39914-0404-43b5-bf19-eb980f234e7e/files/455a795c-62cb-4e9f-b7bb-81aaa970bba0.jpg")',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            opacity: 0.15
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" style={{ opacity: 0.85 }} />
+        <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-5xl md:text-7xl mb-6 animate-fade-in" style={{ fontFamily: 'Cormorant, serif' }}>
             Юридическое бюро<br />«Ерещенко и Партнёры»
           </h1>
