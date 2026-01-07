@@ -4,9 +4,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
+import BlogArticle from '@/components/BlogArticle';
+import ConsumerRights from '@/components/blog/ConsumerRights';
+import PropertyDivision from '@/components/blog/PropertyDivision';
+import TaxInspection from '@/components/blog/TaxInspection';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [currentArticle, setCurrentArticle] = useState<string | null>(null);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -82,21 +87,75 @@ const Index = () => {
 
   const blogPosts = [
     {
+      id: 'consumer-rights',
       title: 'Защита прав потребителей: что важно знать',
       date: '15 декабря 2024',
       excerpt: 'Основные права потребителей и способы их защиты в различных ситуациях'
     },
     {
+      id: 'property-division',
       title: 'Раздел имущества при разводе: практические советы',
       date: '10 декабря 2024',
       excerpt: 'Как правильно разделить совместно нажитое имущество и избежать типичных ошибок'
     },
     {
+      id: 'tax-inspection',
       title: 'Налоговые проверки: как подготовиться',
       date: '5 декабря 2024',
       excerpt: 'Пошаговая инструкция для бизнеса по подготовке к проверке ФНС'
     }
   ];
+
+  if (currentArticle === 'consumer-rights') {
+    return (
+      <div className="min-h-screen">
+        <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+          <div className="container mx-auto px-4 py-4">
+            <div className="text-2xl font-bold text-primary" style={{ fontFamily: 'Cormorant, serif' }}>
+              Ерещенко и Партнёры
+            </div>
+          </div>
+        </nav>
+        <BlogArticle title="Защита прав потребителей: что важно знать" onBack={() => setCurrentArticle(null)}>
+          <ConsumerRights />
+        </BlogArticle>
+      </div>
+    );
+  }
+
+  if (currentArticle === 'property-division') {
+    return (
+      <div className="min-h-screen">
+        <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+          <div className="container mx-auto px-4 py-4">
+            <div className="text-2xl font-bold text-primary" style={{ fontFamily: 'Cormorant, serif' }}>
+              Ерещенко и Партнёры
+            </div>
+          </div>
+        </nav>
+        <BlogArticle title="Раздел имущества при разводе: практические советы" onBack={() => setCurrentArticle(null)}>
+          <PropertyDivision />
+        </BlogArticle>
+      </div>
+    );
+  }
+
+  if (currentArticle === 'tax-inspection') {
+    return (
+      <div className="min-h-screen">
+        <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+          <div className="container mx-auto px-4 py-4">
+            <div className="text-2xl font-bold text-primary" style={{ fontFamily: 'Cormorant, serif' }}>
+              Ерещенко и Партнёры
+            </div>
+          </div>
+        </nav>
+        <BlogArticle title="Налоговые проверки: как подготовиться" onBack={() => setCurrentArticle(null)}>
+          <TaxInspection />
+        </BlogArticle>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
@@ -133,11 +192,18 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center pt-20" style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/placeholder.svg")',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://cdn.poehali.dev/projects/8ed39914-0404-43b5-bf19-eb980f234e7e/files/455a795c-62cb-4e9f-b7bb-81aaa970bba0.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
         <div className="container mx-auto px-4 text-center text-white">
+          <div className="mb-8">
+            <img 
+              src="https://cdn.poehali.dev/projects/8ed39914-0404-43b5-bf19-eb980f234e7e/files/455a795c-62cb-4e9f-b7bb-81aaa970bba0.jpg" 
+              alt="Ерещенко и Партнёры" 
+              className="mx-auto mb-6 max-w-xs md:max-w-md opacity-90"
+            />
+          </div>
           <h1 className="text-5xl md:text-7xl mb-6 animate-fade-in" style={{ fontFamily: 'Cormorant, serif' }}>
             Юридическое бюро<br />«Ерещенко и Партнёры»
           </h1>
@@ -325,7 +391,7 @@ const Index = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {blogPosts.map((post, index) => (
-              <Card key={index} className="hover-scale cursor-pointer">
+              <Card key={index} className="hover-scale cursor-pointer" onClick={() => setCurrentArticle(post.id)}>
                 <CardContent className="pt-6">
                   <div className="text-sm text-gray-500 mb-3">{post.date}</div>
                   <h3 className="text-xl font-bold mb-3" style={{ fontFamily: 'Cormorant, serif' }}>
